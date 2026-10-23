@@ -16,6 +16,10 @@ test('throw on empty input', async t => {
 	await t.throwsAsync(optipng()(), {message: /Expected a buffer/v});
 });
 
+test('optimizationLevel option', async t => {
+	await t.notThrowsAsync(optipng({optimizationLevel: 0})(fixture));
+});
+
 test('bitDepthReduction option', async t => {
 	await t.notThrowsAsync(optipng({bitDepthReduction: true})(fixture));
 });
